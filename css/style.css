@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Clicker+Script&family=Poppins:wght@200;300;400;500;600;700&display=swap');
 :root{
---bg-black-900:radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
---bg-black-100: radial-gradient(circle, rgb(252, 189, 217) 0%, rgb(134, 185, 243) 100%);
+/* --bg-black-900:radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+--bg-black-100: radial-gradient(circle, rgb(252, 189, 217) 0%, rgb(134, 185, 243) 100%); */
+--bg-black-900:radial-gradient(circle, rgb(248, 140, 140) 0%, rgb(99, 168, 118) 100%);
+--bg-black-100: radial-gradient(circle, rgb(245, 159, 159) 0%, rgb(117, 178, 120) 100%);
 --bg-black-50: #e8dfec;
 --text-black-900: #302e4d;
 --text-black-700: #504e70;

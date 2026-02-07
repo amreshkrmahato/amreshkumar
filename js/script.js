@@ -89,3 +89,47 @@ const navTogglerBtn = document.querySelector(".nav-toggler"),
             allSection[i].classList.toggle('open');
         }
       }
+
+/* Contact Form - EmailJS Integration */
+const contactForm = document.getElementById("contactForm");
+const sendBtn = document.getElementById("sendBtn");
+
+if(contactForm) {
+    contactForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+        
+        // Change button text to indicate sending
+        const originalText = sendBtn.textContent;
+        sendBtn.textContent = "Sending...";
+        sendBtn.disabled = true;
+        
+        // Get form values
+        const from_name = document.getElementById("from_name").value;
+        const email_id = document.getElementById("email_id").value;
+        const phone = document.getElementById("phone").value;
+        const subject = document.getElementById("subject").value;
+        const message = document.getElementById("message").value;
+        
+        // Send email using EmailJS
+        emailjs.send("service_ozt7vwg", "template_6t68z5p", {
+            from_name: from_name,
+            email_id: email_id,
+            phone: phone,
+            subject: subject,
+            message: message,
+            to_email: "amreshkrmahato1123@gmail.com"
+        }).then(function(response) {
+            // Success
+            alert("Message sent successfully! I'll get back to you soon.");
+            contactForm.reset();
+            sendBtn.textContent = originalText;
+            sendBtn.disabled = false;
+        }, function(error) {
+            // Error
+            alert("Failed to send message. Please try again later.");
+            console.log("EmailJS Error:", error);
+            sendBtn.textContent = originalText;
+            sendBtn.disabled = false;
+        });
+    });
+}

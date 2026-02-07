@@ -12,6 +12,9 @@ window.addEventListener("scroll", () => {
 })
 /* themes colors   */
 const alternateStyles = document.querySelectorAll(".alternate-style");
+const colors = ["color-1", "color-2", "color-3", "color-4", "color-5"];
+let currentColorIndex = 0;
+
 function setActiveStyle(color)
 {
     alternateStyles.forEach((style)=>{
@@ -25,6 +28,18 @@ function setActiveStyle(color)
         }
     })
 }
+
+// Auto-rotate skin every 5 seconds
+function autoRotateSkin()
+{
+    setActiveStyle(colors[currentColorIndex]);
+    currentColorIndex = (currentColorIndex + 1) % colors.length;
+}
+
+// Start auto-rotation on page load
+window.addEventListener("load", () => {
+    setInterval(autoRotateSkin, 5000);
+});
 /* theme light and dark mode  */
 const dayNight = document.querySelector(".day-night");
 dayNight.addEventListener("click", ()=> {
